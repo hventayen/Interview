@@ -6,7 +6,7 @@ We have already laid out the framework for this change on the database end by ad
 
 Here is a graphic to help visualize the two data structures, Users and Permissions
 
-https://github.com/hventayen/Interview/blob/main/image.png
+![alt text](https://github.com/hventayen/Interview/blob/main/image.png)
 
 Note: This is a graphic to represent the two data structures using pseudocode and not written within the grammar/naming conventions of any one programming language
 
