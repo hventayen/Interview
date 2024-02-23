@@ -1,0 +1,3 @@
+Might have needed to test the syntax more just so I know i'm accessing the right dictionary, as well as using the keys & values correctly to get the right value. Comments explains more in depth.
+
+Forgot to edit more tests, but what I was planning for that section was to check if permissions exist for all users that have the role as rider. So each rider permission checked with corresponding id number that had the role of rider.
