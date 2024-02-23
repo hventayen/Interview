@@ -1,0 +1,42 @@
+# see graphic in instructions for visual explanation of the permission and user data structures
+class Authorization:
+  def __init__(self, permissions, users):
+    self.permissions = permissions
+    self.users = users
+
+# @rtype: list of strings
+# @returns: a list of all the active permission names that the user with the corresponding user_id has
+# @note: The order in which the permission names are returned is not important
+# @example: listPermissions(1) ➡ ["View Orders", "Block User Account"] (purchased widgets not included since it is not active)
+  def list_permissions(self, user_id):
+    # TODO: fill this out!
+    # self to access the current object's setUp
+    # iterate thru dict to see if given user_id matches an id
+    # return permission names of that user
+    for user in self.users:
+      if user.id == user_id:
+        return user.roles
+    print ("username does not exist")
+    return 
+
+# @rtype: boolean value
+# @returns: true or false based on if the user with the corresponding user_id has the role that corresponds with the specific permission_name and that particular permission is active
+# @example: Example (Based on data from graphic)
+# checkPermitted("scooters near me", 2) ➡ true
+# checkPermitted("scooters near me", 1) ➡ false
+  def check_permitted(self, permission_name, user_id):
+    # TODO: fill this out!
+    #iterate to find if user's id is same as the user_id
+    for user in self.users:
+      if user[id] == user_id:
+        #now check each of the specific user's roles 
+        for role in user.roles:
+          #On the other hand, check each of the other permissions dict role names
+          for permission in self.permissions:
+            if role == permission.role:
+              #if they have same role names, now check if they have the permission name we're looking for
+              if permission.name == permission_name:
+                #if so, return true that they have it, end code
+                return bool(1)
+    #code keeps going, means user_id or permission_name not found
+    return bool()
