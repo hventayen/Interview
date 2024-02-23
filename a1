@@ -1,0 +1,42 @@
+**From**: You
+**To**: Casey (senior engineer teammate)
+**Subject**: re: User creation error
+
+Hi Casey,
+
+Here's what I know. Email is given to third party library, then that "pulls down" information from social media websites. 
+To first get unlikely solutions out of the way:
+
+-Check how social media enrichment works. The switches look like they might be preventing extraction/ connection from all sites
+
+-To me without looking at the code this sounds like the email might not be the same among other platforms. Check if the user's email is the same for other platforms first from their profile system, then we can proceed. 
+
+-But assuming you did that, looking at the code let's make sure that the emails are correct and there's no misspelling errors, as well as being a valid email. Some of the emails that work have unfamiliar addresses, but I think making sure that they come from real sites are fair to investigate
+
+-Looking at the code more, I want to check more to see if the fetch_social_profiles() function works too. Since you are using a library, make sure that:
+- first you are calling requests to the library correctly, using a profile that you know for sure is correct(users that work). if it's still wrong, investigate how you use the library. Either that, or the syntax of how you input users into postgresql 
+- If calling the library works, then move onto multiple profiles. 
+- If that works, do only one profile with a user that failed. 
+
+Overall, I think that we can narrow down the problem to possibly how you're calling the API, as PostgreSQL can also have problems first connecting, then syntax of creating users, and making sure they are added to the table. Please investigate all these points in the process of creating the user.
+
+Here is a basic connection manual to download the library to start:
+https://www.commandprompt.com/education/how-to-connect-to-postgresql-database-server-using-python/
+It also shows how to connect something basic.
+
+Note: Make sure you can retrieve something basic from the server to make sure what you're doing is correct.
+
+Then, here is a basic query to start:
+from psycopg2 import sql
+
+query = sql.SQL("CREATE USER {username} WITH PASSWORD {password}").format(
+    username=sql.Identifier('abcdefgh'),
+    password=sql.Placeholder()
+)
+cur.execute(query, ('0h/9warrAttrgd8EF0gkvQ==',))
+
+According to https://stackoverflow.com/questions/53022587/postgres-psycopg2-create-user, it is a much more updated way of adding users. Also https://www.psycopg.org/docs/usage.html#passing-parameters-to-sql-queries if that query doesn't work out, as I trust the docs will have more of what you're looking for(just remember to check your version).
+
+**Ticket #9584 Comment** to Tamara (customer support colleague)
+
+{replace with your comment to Tamara}
