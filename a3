@@ -1,0 +1,7 @@
+First finding the window where the card must be added, I took the steps listed:
+- list down what the alert card will look like
+- map out all the breaches by date, name (more research needed)
+- splitting it into two cases: breach or no breach
+- providing button onClick{} functions so that the buttons existing will lead to dismiss or changing password(changing metadata of the user)
+- accessing user metadata using Auth0 component library
+- accessing card functions and design using Core UI library
